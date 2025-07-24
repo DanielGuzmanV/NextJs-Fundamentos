@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { poppins } from "./ui/fonts";
+
 
 export default function Home() {
   return (
@@ -20,8 +22,11 @@ export default function Home() {
             </code>
             .
           </li>
-          <li className="tracking-[-.01em]">
+          <li className="mb-2 tracking-[-.01em]">
             Save and see your changes instantly.
+          </li>
+          <li className={`${poppins.className} antialiased tracking-[-.01em]`}>
+            Ex sint proident Lorem ad exercitation do. Pariatur dolore sint quis laboris consequat aliquip in esse laboris voluptate consectetur quis. Enim Lorem do cupidatat sunt mollit amet minim incididunt pariatur magna..
           </li>
         </ol>
 
