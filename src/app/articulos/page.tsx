@@ -14,7 +14,9 @@ const peticionArticulos = async(): Promise<Articulo[]> => {
     try {
       const response = await fetch('https://fakestoreapi.com/products');
       const data = await response.json();
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       return data;
+
     } catch (error) {
       console.log("Hay un error en la peticion:", error);
       return[];
