@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Articulos from "../page";
+import { Suspense } from "react";
 
 interface Props {
   params: {
@@ -61,6 +63,11 @@ export default async function Articulo({params}: Props) {
         
         </div>
       </div>
+
+      <Suspense fallback={<div>Cargando...</div>}>
+        <Articulos/>
+      </Suspense>
+
     </>
   )
 }
