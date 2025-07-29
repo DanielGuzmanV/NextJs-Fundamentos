@@ -33,22 +33,30 @@ export default async function Articulo({params}: Props) {
 
   return (
     <>
-      <div className="flex flex-col gap-2 justify-center items-center text-center">
-        <p className="m-4">Pagina de articulos</p>
+      <div className="flex flex-col items-center text-center">
+        <p className="m-4 text-4xl font-semibold text-gray-800 hover:text-gray-300 transition-colors duration-400">
+          Pagina de articulos
+        </p>
       </div>
 
-      <div className="mx-4 grid grid-cols-3 gap-7">
-        <div className="my-4 mx-2 bg-amber-200 rounded-lg hover:bg-amber-100" key={articuloID.id}>
-          <h2 className="font-bold text-center p-2">{articuloID.title}</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 max-w-6xl mx-auto px-4">
+        <div className="bg-amber-400 rounded-lg hover:bg-amber-200 transition-colors duration-300 p-4" 
+          key={articuloID.id}
+        >
+          <h2 className="font-bold text-center mb-2">{articuloID.title}</h2>
 
-          <div className="flex p-2 m-4">
-            <p className="text-xs">{articuloID.description}</p>
-            <Image className="opacity-90 rounded-3xl"
-              width={80}
-              height={50}
-              src={articuloID.image}
-              alt={articuloID.title}
-            />
+          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4">
+            <p className="text-sm text-left flex-1">{articuloID.description}</p>
+            
+            <div className="flex-shrink-0">
+              <Image className="rounded-3xl object-contain"
+                width={80}
+                height={50}
+                src={articuloID.image}
+                alt={articuloID.title}
+              />
+            </div>
+
           </div>
         
         </div>

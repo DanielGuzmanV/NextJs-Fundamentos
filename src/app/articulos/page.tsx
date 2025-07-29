@@ -41,9 +41,9 @@ export default async function Articulos() {
         {
           articulos.map((values) => {
             return (
-              <div className="my-4 mx-2 bg-amber-200 rounded-lg hover:bg-amber-100" key={values.id}>
+              <Link href={`/articulos/${values.id}`} key={values.id}>
+                <div className="my-4 mx-2 bg-amber-200 rounded-lg hover:bg-amber-100">
                 <h2 className="font-bold text-center p-2">{values.title}</h2>
-
                 <div className="flex p-2 m-4">
                   <p className="text-xs">{values.description}</p>
                   <Image className="opacity-90 rounded-3xl"
@@ -53,8 +53,8 @@ export default async function Articulos() {
                     alt={values.title}
                   />
                 </div>
-              
               </div>
+              </Link>
             )
           })
         }
