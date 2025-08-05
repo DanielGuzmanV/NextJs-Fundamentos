@@ -21,7 +21,7 @@ const peticionArticulos = async(id: string) => {
   try {
     const response = await fetch('https://fakestoreapi.com/products/' + id);
     const data = await response.json();
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 500));
     return data;
 
   } catch (error) {
@@ -64,7 +64,7 @@ export default async function Articulo({params}: Props) {
         </div>
       </div>
 
-      <Suspense fallback={<div>Cargando...</div>}>
+      <Suspense fallback={<div>Cargando la siguiente seccion...</div>}>
         <Articulos/>
       </Suspense>
 
