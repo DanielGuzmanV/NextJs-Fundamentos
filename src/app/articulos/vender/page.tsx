@@ -1,6 +1,6 @@
 export default function VenderArticulos() {
   return (
-    <div>
+    <div className="bg-amber-300 text-black">
       <p>Zona para vender articulos</p>
     </div>
   )
