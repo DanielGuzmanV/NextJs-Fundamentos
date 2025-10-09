@@ -1,39 +1,18 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
+import { prisma } from "@/app/libs/prisma";
 
-export function GET() {
-  return NextResponse.json({
-    message: "GET /api/posts"
-  });
+export async function GET() {
+  const post = await prisma.post.findMany();
+  return NextResponse.json(post);
 }
 
-export function POST() {
-  return NextResponse.json({
-    message: "POST /api/posts"
-  });
+export async function POST(request: NextRequest) {
+  const datos = await request.json();
+  const nuevoPost = await prisma.post.create({
+    data: {
+      titulo: datos.titulo,
+      contenido: datos.contenido,
+    }
+  })
+  return NextResponse.json(nuevoPost);
 }
-export function PUT() {
-  return NextResponse.json({
-    message: "PUT /api/posts"
-  });
-}
-export function DELETE() {
-  return NextResponse.json({
-    message: "DELETE /api/posts"
-  });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
