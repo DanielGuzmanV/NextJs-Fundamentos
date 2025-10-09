@@ -3,9 +3,7 @@ import Articulos from "../page";
 import { Suspense } from "react";
 
 interface Props {
-  params: {
-    articuloid: string;
-  }
+  params: { articuloid: string; }
 }
 
 interface Articulo {
@@ -17,24 +15,25 @@ interface Articulo {
   image: string;
 }
 
+// Peticion de articulos:
 const peticionArticulos = async(id: string) => {
   try {
     const response = await fetch('https://fakestoreapi.com/products/' + id);
     const data = await response.json();
     await new Promise((resolve) => setTimeout(resolve, 500));
     return data;
-
   } catch (error) {
     console.log("Hay un error en la peticion:", error);
   }
 }
 
+// Funcion asincrona:
 export default async function Articulo({params}: Props) {
   const {articuloid} = await params;
   const articuloID = await peticionArticulos(articuloid);
 
   return (
-    <>
+    <div className="bg-indigo-900">
       <div className="flex flex-col items-center text-center">
         <p className="m-4 text-4xl font-semibold text-gray-800 hover:text-gray-300 transition-colors duration-400">
           Pagina de articulos
@@ -47,7 +46,7 @@ export default async function Articulo({params}: Props) {
         >
           <h2 className="font-bold text-center mb-2">{articuloID.title}</h2>
 
-          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4">
+          <div className="flex flex-row sm:flex-row items-center sm:items-center gap-4">
             <p className="text-sm text-left flex-1">{articuloID.description}</p>
             
             <div className="flex-shrink-0">
@@ -68,6 +67,6 @@ export default async function Articulo({params}: Props) {
         <Articulos/>
       </Suspense>
 
-    </>
+    </div>
   )
 }
