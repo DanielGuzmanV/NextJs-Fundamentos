@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function notFound() {
@@ -6,6 +7,13 @@ export default function notFound() {
       <h2>Sin salida...</h2>
 
       <p>Pagina no encontrada, ocurrio un error...</p>
+      <div className='py-10'>
+        <button>
+          <Link href="/" className='bg-blue-300 text-black p-4 rounded-xl border border-blue-500'>
+            Ir a la pagina principal
+          </Link>
+        </button>
+      </div>
     </div>
   )
 };
