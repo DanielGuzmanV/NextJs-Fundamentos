@@ -27,16 +27,24 @@ export default function RootLayout(
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <nav>
-          <ul className="flex gap-3 justify-center bg-white text-black rounded-sm">
-            <li className="hover:bg-slate-500 hover:text-white rounded-md py-2 px-4">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="hover:bg-slate-500 hover:text-white rounded-md py-2 px-4">
-              <Link href="/ingresar">Ingresar</Link>
-            </li>
-            <li className="hover:bg-slate-500 hover:text-white rounded-md py-2 px-4">
-              <Link href="/articulos">Articulos</Link>
-            </li>
+          <ul className="flex gap-3 justify-center bg-gradient-to-t from-blue-100 to-blue-300 text-black text-xl font-semibold py-5">
+            <Link href="/">
+              <li className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+                Home
+              </li>
+            </Link>
+
+            <Link href="/ingresar">
+              <li className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+                Ingresar
+              </li>
+            </Link>
+
+            <Link href="/articulos">
+              <li className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+                Articulos
+              </li>
+            </Link>
           </ul>
         </nav>
 
