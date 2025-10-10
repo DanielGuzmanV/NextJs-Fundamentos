@@ -15,15 +15,17 @@ export  default async function Post () {
   const listaPosts = await cargarPosts();
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
 
-      <h1 className="my-5 text-3xl font-extrabold text-red-400">Lista de Post</h1>
+      <h1 className="my-5 text-4xl font-extrabold text-red-400">Lista de Post</h1>
       <div>
         <ul>
-          {listaPosts.map((post) => (
-            <li key={post.id}>
-              <h2 className="text-blue-300 font-bold text-xl">{post.titulo}</h2>
-              <p>{post.contenido}</p>
+          {listaPosts.map((post, idx) => (
+            <li key={post.id} className="bg-gray-100 p-2 m-2 rounded-lg text-black">
+              <h2 className="text-blue-500 font-bold text-2xl">
+                {idx + 1}. {post.titulo != "" ? post.titulo : "(No hay titulo)" }
+              </h2>
+              <p>{post.contenido != "" ? post.contenido : "(No hay contenido)"}</p>
             </li>
           ))}
         </ul>
