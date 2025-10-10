@@ -28,23 +28,29 @@ export default function RootLayout(
       >
         <nav>
           <ul className="flex gap-3 justify-center bg-gradient-to-t from-blue-100 to-blue-300 text-black text-xl font-semibold py-5">
-            <Link href="/">
-              <li className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+            <li>
+              <Link href="/" className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
                 Home
-              </li>
-            </Link>
+              </Link>
+            </li>
 
-            <Link href="/ingresar">
-              <li className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+            <li>
+              <Link  href="/ingresar" className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
                 Ingresar
-              </li>
-            </Link>
+              </Link>
+            </li>
 
-            <Link href="/articulos">
-              <li className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+            <li>
+              <Link href="/articulos" className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
                 Articulos
-              </li>
-            </Link>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/posts" className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+                  Posts
+              </Link>
+            </li>
           </ul>
         </nav>
 
