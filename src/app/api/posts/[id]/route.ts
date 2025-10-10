@@ -25,7 +25,7 @@ export async function PUT(request: NextRequest, {params}: DataParams) {
   return NextResponse.json(postUpdate);
 }
 
-export async function DELETE({params}: DataParams) {
+export async function DELETE(request: Request, {params}: DataParams) {
   const {id} = await params;
   try {
     const postDelete = await prisma.post.delete({
