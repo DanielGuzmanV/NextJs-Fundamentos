@@ -5,7 +5,7 @@ interface DataParams {
   params: {id: string}
 }
 
-export async function GET({params}: DataParams) {
+export async function GET(request: Request, {params}: DataParams) {
   const {id} = await params
   const post = await prisma.post.findUnique({
     where: {
