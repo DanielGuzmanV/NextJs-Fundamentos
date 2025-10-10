@@ -46,7 +46,7 @@ export default async function Articulos() {
                 <div className="bg-amber-400 rounded-lg hover:bg-amber-200 hover:text-black transition-colors duration-300 p-4">
                   <h2 className="font-bold text-center mb-2">{values.title}</h2>
         
-                  <div className="flex flex-row sm:flex-row items-center sm:items-center gap-4">
+                  <div className="flex flex-col sm:flex-col items-center sm:items-center gap-4">
                     <div className="flex-shrink">
                       <p className="text-sm text-left flex-1">{values.description}</p>
                     </div>
