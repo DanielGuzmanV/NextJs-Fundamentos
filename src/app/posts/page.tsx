@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 interface PostData {
   id: number;
@@ -22,10 +23,12 @@ export  default async function Post () {
         <ul>
           {listaPosts.map((post, idx) => (
             <li key={post.id} className="bg-gray-100 p-2 m-2 rounded-lg text-black">
-              <h2 className="text-blue-500 font-bold text-2xl">
-                {idx + 1}. {post.titulo != "" ? post.titulo : "(No hay titulo)" }
-              </h2>
-              <p>{post.contenido != "" ? post.contenido : "(No hay contenido)"}</p>
+              <Link href={`/posts/${post.id}`}>
+                <h2 className="text-blue-500 font-bold text-2xl">
+                  {idx + 1}. {post.titulo != "" ? post.titulo : "(No hay titulo)" }
+                </h2>
+                <p>{post.contenido != "" ? post.contenido : "(No hay contenido)"}</p>
+              </Link>
             </li>
           ))}
         </ul>
