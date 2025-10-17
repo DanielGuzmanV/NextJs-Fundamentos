@@ -67,6 +67,14 @@ export default function RootLayout(
                   Ingresar server action
               </Link>
             </li>
+
+            <li>
+              <Link 
+                href="/editParams" 
+                className="hover:bg-slate-400 text-center flex justify-center hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+                  Editar params
+              </Link>
+            </li>
           </ul>
         </nav>
 
