@@ -1,20 +1,15 @@
 "use client"
 
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
-type Data = {
-  id: number;
-  titulo: string;
-  contenido: string;
-}
-
-interface EditProps  {
-  edit: boolean;
-  post: Data;
-}
-
-export default function EditParams({post}: EditProps) {
+export default function EditParams() {
+  const params = useSearchParams();
   const router = useRouter();
+
+  const paramsId = params.get("id");
+  const paramsTitulo = params.get("titulo");
+  const paramsContenido = params.get("contenido");
 
   const enviarForm = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
@@ -28,7 +23,7 @@ export default function EditParams({post}: EditProps) {
   }
 
   try {
-    const response = await fetch(`/api/posts/${post.id}`, {
+    const response = await fetch(`/api/posts/${paramsId}`, {
       method: "PUT",
       body: JSON.stringify({titulo, contenido}),
       headers: {
@@ -59,12 +54,14 @@ export default function EditParams({post}: EditProps) {
             className="w-full mb-3 p-3 rounded-xl border border-gray-400" 
             type="text" 
             placeholder="Ingrese un titulo"
+            defaultValue={paramsTitulo || ""}
           />
           <textarea 
             id="contenido" 
             className="w-full mb-3 p-3 rounded-xl border border-gray-400" 
             rows={3}
             placeholder="Ingres el contenido"
+            defaultValue={paramsContenido || ""}
           ></textarea>
           <div className="flex justify-between">
             <input 
