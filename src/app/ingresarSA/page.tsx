@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { prisma } from "@/app/libs/prisma";
 
 export const recogerForm = async (datos: FormData) => { 
   const titulo = datos.get("titulo") as string;
@@ -10,22 +11,30 @@ export const recogerForm = async (datos: FormData) => {
       return;
   }
 
-  try {
-    const response = await fetch("http://localhost:3000/api/posts", {
-      method: "POST",
-      body: JSON.stringify({titulo, contenido}),
-    });
+  // try {
+  //   const response = await fetch("http://localhost:3000/api/posts", {
+  //     method: "POST",
+  //     body: JSON.stringify({titulo, contenido}),
+  //   });
     
-    if (!response.ok) {
-      console.error("Fallo la petición:", response.status);
-      return;
-    }
-  } catch (error) {
-    console.log("Error: ", error)
-  }
-  finally{
+  //   if (!response.ok) {
+  //     console.error("Fallo la petición:", response.status);
+  //     return;
+  //   }
+  // } catch (error) {
+  //   console.log("Error: ", error)
+  // }
+  // finally{
+  //   redirect("/posts");
+  // }
+
+  const nuevoPost = await prisma.post.create({
+      data: {
+        titulo: titulo,
+        contenido: contenido,
+      }
+    })
     redirect("/posts");
-  }
 }
 
 export default async function IngresarSAct() {
