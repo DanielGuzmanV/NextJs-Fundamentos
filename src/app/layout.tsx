@@ -29,26 +29,42 @@ export default function RootLayout(
         <nav>
           <ul className="flex gap-3 justify-center bg-gradient-to-t from-blue-100 to-blue-300 text-black text-xl font-semibold py-5">
             <li>
-              <Link href="/" className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+              <Link 
+                href="/" 
+                className="hover:bg-slate-400 text-center flex justify-center hover:text-white rounded-3xl py-2 px-6 transform transition-all">
                 Home
               </Link>
             </li>
 
             <li>
-              <Link  href="/ingresar" className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+              <Link 
+                href="/ingresar" 
+                className="hover:bg-slate-400 text-center flex justify-center hover:text-white rounded-3xl py-2 px-6 transform transition-all">
                 Ingresar
               </Link>
             </li>
 
             <li>
-              <Link href="/articulos" className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+              <Link 
+                href="/articulos" 
+                className="hover:bg-slate-400 text-center flex justify-center hover:text-white rounded-3xl py-2 px-6 transform transition-all">
                 Articulos
               </Link>
             </li>
 
             <li>
-              <Link href="/posts" className="hover:bg-slate-400 hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+              <Link 
+                href="/posts" 
+                className="hover:bg-slate-400 text-center flex justify-center hover:text-white rounded-3xl py-2 px-6 transform transition-all">
                   Posts
+              </Link>
+            </li>
+
+            <li>
+              <Link 
+                href="/ingresarSA" 
+                className="hover:bg-slate-400 text-center flex justify-center hover:text-white rounded-3xl py-2 px-6 transform transition-all">
+                  Ingresar server action
               </Link>
             </li>
           </ul>
