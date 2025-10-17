@@ -1,6 +1,30 @@
+"use client"
+
 import React from 'react'
 
 export default function Registro() {
+
+  const getForm = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const usuario = (form.elements.namedItem('usuario') as HTMLInputElement).value;
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const password = (form.elements.namedItem('password') as HTMLInputElement).value;
+    
+    const response = await fetch('/api/usuarios/registro', {
+      method: 'POST',
+      headers: {  
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 
+        usuario: usuario, 
+        email: email,  
+        password: password
+      })
+    });
+    const datos = await response.json();
+  }
+
   return (
     <>
       <h1 className='flex justify-center'>
@@ -8,10 +32,13 @@ export default function Registro() {
       </h1>
 
       <div className='flex justify-center'>
-        <form className='flex flex-col items-center mt-4 p-5 bg-white w-2xl rounded-lg text-black'>
+        <form 
+          className='flex flex-col items-center mt-4 p-5 bg-white w-2xl rounded-lg text-black'
+          onSubmit={getForm}
+        >
           <input
             type='text'
-            id='usario'
+            id='usuario'
             required
             className='border border-gray-300 rounded-md p-2 w-64 mb-4 bg-white'
             placeholder='Nombre de usuario'
@@ -20,12 +47,14 @@ export default function Registro() {
             type='email'
             id='email'
             required
+            name='email'
             className='border border-gray-300 rounded-md p-2 w-64 mb-4 bg-white'
             placeholder='Correo electrónico'  
           />
           <input
             type='password'
             id='password'
+            name='password'
             required
             className='border border-gray-300 rounded-md p-2 w-64 mb-4 bg-white'
             placeholder='Contraseña'  
